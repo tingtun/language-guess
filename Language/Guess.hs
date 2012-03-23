@@ -7,7 +7,13 @@ import Data.Function (on)
 import qualified Data.Map as M
 import Data.Map (Map)
 import Data.Maybe (fromMaybe)
-import Data.Tuple
+
+#if MIN_VERSION_base(4,3,0)
+import Data.Tuple (swap)
+#else
+import Data.Tuple.HT (swap)
+#endif
+
 import Data.List (sort, sortBy)
 
 import qualified Data.ByteString.Char8 as BS
