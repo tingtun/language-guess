@@ -13,6 +13,7 @@ Data-files:          lang.dat
 Cabal-version:       >=1.2
 
 Library
+  Other-Modules:     Paths_language_guess
   Exposed-modules:   Language.Guess
   Build-depends:     base -any, cereal ==0.3.*, bytestring ==0.9.*,
                      containers ==0.4.*
