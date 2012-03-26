@@ -12,13 +12,10 @@ Extra-Source-Files:  php2hs.php
 Data-files:          lang.dat
 Cabal-version:       >=1.2
 
-flag ghc7
-
 Library
   Exposed-modules:   Language.Guess
-  
   Build-depends:     base -any, cereal ==0.3.*, bytestring ==0.9.*,
                      containers ==0.4.*
-  if !flag(ghc7)
-    Build-depends:   utilities-ht -any
+  if impl(ghc < 7.0.0)
+    Build-depends:     utility-ht -any
   Extensions:        CPP
