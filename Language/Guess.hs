@@ -1,4 +1,13 @@
 {-# LANGUAGE UnicodeSyntax #-}
+-- | Example usage:
+--
+-- >>> dat <- loadData'
+-- >>> head $ guess dat "this is a teststring"
+-- ("en",0.49421052631578954)
+-- >>> take 2 $ guess dat "dette er en teststreng"
+-- [("no",0.5703030303030303),("da",0.5096969696969698)]
+-- >>> head $ guess dat "lorem ipsum dolor sit amet"
+-- ("la",0.34199999999999997)
 module Language.Guess where
 
 import Control.Applicative ((<$>))
@@ -74,10 +83,7 @@ clean (x:y:xs)
     | isPunctuation y || isNumber y = clean (x:' ':xs)
     | isUpper y = clean (x:toLower y:xs)
     | otherwise = x:clean (y:xs)
+      where isWhite x = isSpace x || isSeparator x
 clean (' ':[]) = " "
 clean (x:[]) = x:" "
 clean _ = ""
-
--- | If a character is a whitespace.
-isWhite ∷ Char → Bool
-isWhite x = isSpace x || isSeparator x
