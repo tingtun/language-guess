@@ -15,7 +15,7 @@ Cabal-version:       >=1.6
 
 Source-Repository head
   Type:              git
-  Location:          git://egovmon.no/language-guess
+  Location:          git://github.com/tingtun/language-guess.git
 
 Library
   Other-Modules:     Paths_language_guess
